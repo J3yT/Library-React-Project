@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import LibraryLogo from '../assets/Library.svg'
+import LibraryLogo from "../assets/Library.svg";
 
 export default function Nav() {
   return (
@@ -12,12 +12,12 @@ export default function Nav() {
         <ul className="nav__links">
           <li className="nav__list">
             <a href="/" className="nav__link">
-                Home
+              Home
             </a>
           </li>
           <li className="nav__list">
             <a href="/" className="nav__link">
-                Books
+              Books
             </a>
           </li>
           <button className="btn__menu">
@@ -32,7 +32,7 @@ export default function Nav() {
         </ul>
         <div className="menu__backdrop">
           <button className="btn__menu btn__menu--close">
-            <FontAwesomeIcon icon="times"/>
+            <FontAwesomeIcon icon="times" />
           </button>
           <ul className="menu__links">
             <li className="menu__list">
