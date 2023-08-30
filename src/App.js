@@ -1,11 +1,11 @@
-import Footer from "./components/Footer";
-import Nav from "./components/Nav";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Books from "./pages/Books";
-import { books } from "./data";
 import BookInfo from "./pages/BookInfo";
-import { useEffect, useState } from "react";
+import { books } from "./data";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
 
 function App() {
@@ -31,14 +31,6 @@ function App() {
 
   function removeItem(item) {
     setCart((oldCart) => oldCart.filter((cartItem) => cartItem.id !== item.id));
-  }
-
-  function numberOfItems() {
-    let counter = 0;
-    cart.forEach((item) => {
-      counter += +item.quantity;
-    });
-    return counter;
   }
 
   function numberOfItems() {
@@ -81,11 +73,17 @@ function App() {
       <div className="App">
         <Nav numberOfItems={numberOfItems()} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home books={books} />} />
           <Route path="/books" element={<Books books={books} />} />
           <Route
             path="/books/:id"
-            element={<BookInfo books={books} addItemToCart={addItemToCart} />}
+            element={
+              <BookInfo
+                books={books}
+                addItemToCart={addItemToCart}
+                cart={cart}
+              />
+            }
           />
           <Route
             path="/cart"

@@ -1,6 +1,6 @@
 import { books } from "../../data";
 import React from "react";
-import Book from "./Book";
+import Book from "../Book";
 
 export default function BestBooks({ id }) {
   return (
@@ -10,7 +10,7 @@ export default function BestBooks({ id }) {
           if (id) {
             // Check for id when on the individual book
             // so the same book isnt recommended
-            return book.rating === 5 && book.id != id;
+            return book.rating === 5 && book.id !== id;
           }
           return book.rating === 5;
         })
